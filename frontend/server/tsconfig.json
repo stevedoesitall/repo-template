@@ -1,0 +1,15 @@
+{
+	"compilerOptions": {
+		"target": "es2018",
+		"module": "ESNext",
+		"moduleResolution": "Node",
+		"outDir": "../dist",
+		"allowSyntheticDefaultImports": true
+	},
+	"include": ["index.ts"],
+	"exclude": ["node_modules", "dist"],
+	"ts-node": {
+		"esm": true,
+		"experimentalSpecifierResolution": "node"
+	}
+}

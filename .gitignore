@@ -1,0 +1,8 @@
+.DS_STORE
+.env
+
+sandbox/
+build/
+dist/
+
+!examples/*
