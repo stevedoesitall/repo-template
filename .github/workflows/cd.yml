@@ -18,12 +18,13 @@ jobs:
         with:
           node-version: 14
 
-      - name: Install Frontend Dependencies
-        run: cd frontend && npm install
+      - name: Install Core Dependencies
+        run: npm install
 
       - name: Build and Compile Frontend
         run: |
           cd frontend
+          npm run install
           npm run compile
           npm run build
 
@@ -49,12 +50,13 @@ jobs:
         with:
           node-version: 14
 
-      - name: Install Backend Dependencies
-        run: cd backend && npm install
+      - name: Install Core Dependencies
+        run: npm install
 
       - name: Compile Backend
         run: |
           cd backend
+          cd install
           npm run compile
 
       - name: Deploy Backend to Heroku
