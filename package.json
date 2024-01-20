@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "start:frontend": "",
-    "start:backend": ""
+    "start:frontend": "cd frontend && npm start",
+    "start:backend": "cd backend && npm start"
   },
   "author": "",
   "license": "ISC",
