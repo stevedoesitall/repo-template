@@ -9,20 +9,16 @@ app.use(express.json());
 app.use(cors({}));
 
 app.get("/healthcheck", (req, res) => {
-  res.json({
-    "data": {
-      "ok": true
-    }
-  });
+  res.send({
+    "ok": true
+  }).status(200);
 });
 
 app.post("/server", (req, res) => {
   console.log(req.body);
-  res.json({
-    "data": {
-      "ok": true
-    }
-  });
+  res.send({
+    "ok": true
+  }).status(200);
 });
 
 app.listen(port, () => {
