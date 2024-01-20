@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 
 const app = express();
-const port = 5050;
+const port = process.env.PORT || 5050;
 
 app.use(express.urlencoded({ "extended": false }));
 app.use(express.json());
