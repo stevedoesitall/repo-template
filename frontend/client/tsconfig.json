@@ -17,7 +17,7 @@
 		"@/*": ["src/*"]
 	  }
 	},
-	"include": ["./src/**/*.ts", "./src/**/*.d.ts", "./src/**/*.tsx", "./src/**/*.svelte", "./configs/**/*.ts"],
+	"include": ["./src/**/*.ts", "./src/**/*.d.ts", "./src/**/*.tsx", "./src/**/*.svelte"],
 	"exclude": ["./public/*"],
 	"ts-node": {
 		"esm": true,

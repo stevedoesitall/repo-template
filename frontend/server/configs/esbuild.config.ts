@@ -10,7 +10,7 @@ import postcss from "postcss";
 import postcssPresetEnv from "postcss-preset-env";
 import purgecss from "@fullhuman/postcss-purgecss";
 
-import envVars from "./env.config";
+import envVars from "./env.config.js";
 
 let baseUrl: string = envVars.url;
 
@@ -26,14 +26,14 @@ const esbuildDestroy = {
 	"name": "esbuild-destroy",
 	setup(build: any) {
 		build.onStart(() => {
-			if (fs.existsSync("../build")) {
-				fs.rmSync("../build", {
+			if (fs.existsSync("./build")) {
+				fs.rmSync("./build", {
 					"recursive": true,
 					"force": true
 				});
 			}
 
-			fs.mkdirSync("../build");
+			fs.mkdirSync("./build");
 		});
 	}
 };

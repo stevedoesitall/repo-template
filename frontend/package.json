@@ -5,8 +5,8 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "build": "ts-node client/configs/esbuild.config.ts",
-	"build:dev": "ts-node client/configs/esbuild.config.ts --mode=dev",
+    "build": "node dist/configs/esbuild.config.js",
+	"build:dev": "ts-node server/configs/esbuild.config.ts --mode=dev",
 	"compile": "tsc -p server",
 	"start:dev": "npm run compile && nodemon .",
 	"start": "node ."

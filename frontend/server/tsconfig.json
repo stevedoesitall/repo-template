@@ -1,12 +1,13 @@
 {
 	"compilerOptions": {
-		"target": "es2018",
-		"module": "ESNext",
-		"moduleResolution": "Node",
+		"target": "esnext",
+		"module": "esnext",
+		"moduleResolution": "node",
 		"outDir": "../dist",
-		"allowSyntheticDefaultImports": true
+		"allowSyntheticDefaultImports": true,
+		"skipLibCheck": true
 	},
-	"include": ["index.ts"],
+	"include": ["../server/**/*.ts"],
 	"exclude": ["node_modules", "dist"],
 	"ts-node": {
 		"esm": true,
