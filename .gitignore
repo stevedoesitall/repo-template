@@ -4,5 +4,6 @@
 sandbox/
 build/
 dist/
+node_modules/
 
 !examples/*
