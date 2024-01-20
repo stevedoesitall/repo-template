@@ -12,7 +12,11 @@ import purgecss from "@fullhuman/postcss-purgecss";
 
 import envVars from "./env.config.js";
 
-const baseUrl: string = envVars.url + ":" + envVars.bePort;
+let baseUrl: string = envVars.url;
+
+if (envVars.environment === "development") {
+	baseUrl = baseUrl + ":" + envVars.bePort;
+}
 
 const isDev = process.argv.includes("--mode=dev");
 
