@@ -38,6 +38,7 @@ jobs:
           git push heroku main
 
         env:
+          APP_TO_START: "frontend"
           HEROKU_EMAIL: ${{ secrets.HEROKU_EMAIL }}
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
 
@@ -71,5 +72,6 @@ jobs:
           heroku git:remote -a steve-kit-be
           git push heroku main
         env:
+          APP_TO_START: "backend"
           HEROKU_EMAIL: ${{ secrets.HEROKU_EMAIL }}
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
