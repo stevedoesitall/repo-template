@@ -9,7 +9,7 @@ const checkLogin = async () => {
 	});
 
 	const data = await response.json();
-
+	console.log("API DATA", data);
 	return data;
 };
 
