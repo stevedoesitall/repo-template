@@ -24,7 +24,7 @@ jobs:
       - name: Build and Compile Frontend
         run: |
           cd frontend
-          npm run install
+          npm install
           npm run compile
           npm run build
 
@@ -56,7 +56,7 @@ jobs:
       - name: Compile Backend
         run: |
           cd backend
-          cd install
+          npm install
           npm run compile
 
       - name: Deploy Backend to Heroku
