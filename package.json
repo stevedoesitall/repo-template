@@ -77,7 +77,7 @@
 			"*.json",
 			"*.js.map",
 			"*.yaml",
-			"node_modules",
+			"node_modules/",
 			"sandbox/",
 			"build/",
 			"styles/",
