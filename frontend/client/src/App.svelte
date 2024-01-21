@@ -8,7 +8,7 @@
 		const data = await checkLogin();
 
 		loggedIn.set(data.loggedIn);
-		console.log("checking login", data);
+		console.log("Checking login", data);
 		if (data.loggedIn) {
 			userEmail.set(data.data.email);
 			userId.set(data.data.id);
