@@ -7,7 +7,7 @@
 		"start:backend": "npm install && cd backend && npm install && npm run compile && npm start",
 		"lint": "eslint . --ext .js,.mjs,.ts,.svelte --fix",
 		"format": "prettier --write .",
-    "prepare": "husky install"
+		"prepare": "husky install"
 	},
 	"author": "",
 	"license": "ISC",
@@ -29,7 +29,6 @@
 		"eslint": "^8.56.0",
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-svelte": "^2.35.1",
-		"husky": "^8.0.3",
 		"lint-staged": "^15.2.0",
 		"prettier": "^3.2.4",
 		"prettier-plugin-svelte": "^3.1.2",

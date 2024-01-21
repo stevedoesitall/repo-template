@@ -1,0 +1,34 @@
+name: Lint and Format
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint-and-format:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set Up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Lint and Format
+        run: |
+          npm run lint
+          npm run format
+
+      - name: Commit Changes
+        run: |
+          git config user.name "stevedoesitall"
+          git config user.email "stephenagiordano@gmail.com"
+          git add .
+          git diff --quiet || git commit -m "Auto-format code" && git push
