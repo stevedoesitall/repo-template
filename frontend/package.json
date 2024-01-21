@@ -1,19 +1,19 @@
 {
-  "name": "frontend",
-  "type": "module",
-  "version": "1.0.0",
-  "description": "",
-  "main": "dist/index.js",
-  "scripts": {
-    "build": "node dist/configs/esbuild.config.js",
-	"build:dev": "ts-node server/configs/esbuild.config.ts --mode=dev",
-	"compile": "tsc -p server",
-	"start:dev": "npm run compile && nodemon .",
-	"start": "node ."
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
+	"name": "frontend",
+	"type": "module",
+	"version": "1.0.0",
+	"description": "",
+	"main": "dist/index.js",
+	"scripts": {
+		"build": "node dist/configs/esbuild.config.js",
+		"build:dev": "ts-node server/configs/esbuild.config.ts --mode=dev",
+		"compile": "tsc -p server",
+		"start:dev": "npm run compile && nodemon .",
+		"start": "node ."
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
 		"@fullhuman/postcss-purgecss": "^5.0.0",
 		"autoprefixer": "^10.4.16",
 		"esbuild": "^0.19.11",

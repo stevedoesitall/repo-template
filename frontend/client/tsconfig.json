@@ -1,26 +1,31 @@
 {
 	"compilerOptions": {
-	  "module": "esnext",
-	  "target": "esnext",
-	  "moduleResolution": "node",
-	  "jsx": "preserve",
-	  "esModuleInterop": true,
-	  "resolveJsonModule": true,
-	  "isolatedModules": false,
-	  "lib": ["dom", "esnext"],
-	  "types": ["svelte"],
-	  "allowSyntheticDefaultImports": true,
-	  "noEmit": false,
-	  "strict": true,
-	  "baseUrl": ".",
-	  "paths": {
-		"@/*": ["src/*"]
-	  }
+		"module": "esnext",
+		"target": "esnext",
+		"moduleResolution": "node",
+		"jsx": "preserve",
+		"esModuleInterop": true,
+		"resolveJsonModule": true,
+		"isolatedModules": false,
+		"lib": ["dom", "esnext"],
+		"types": ["svelte"],
+		"allowSyntheticDefaultImports": true,
+		"noEmit": false,
+		"strict": true,
+		"baseUrl": ".",
+		"paths": {
+			"@/*": ["src/*"]
+		}
 	},
-	"include": ["./src/**/*.ts", "./src/**/*.d.ts", "./src/**/*.tsx", "./src/**/*.svelte"],
+	"include": [
+		"./src/**/*.ts",
+		"./src/**/*.d.ts",
+		"./src/**/*.tsx",
+		"./src/**/*.svelte"
+	],
 	"exclude": ["./public/*"],
 	"ts-node": {
 		"esm": true,
 		"experimentalSpecifierResolution": "node"
 	}
-  }  
+}

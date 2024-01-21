@@ -9,18 +9,22 @@ app.use(express.json());
 app.use(cors({}));
 
 app.get("/healthcheck", (req, res) => {
-  res.send({
-    "ok": true
-  }).status(200);
+	res
+		.send({
+			"ok": true
+		})
+		.status(200);
 });
 
 app.post("/server", (req, res) => {
-  console.log(req.body);
-  res.send({
-    "ok": true
-  }).status(200);
+	console.log(req.body);
+	res
+		.send({
+			"ok": true
+		})
+		.status(200);
 });
 
 app.listen(port, () => {
-  console.log(`Backend server is running on port ${port}`);
+	console.log(`Backend server is running on port ${port}`);
 });

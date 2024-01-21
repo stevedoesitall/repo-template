@@ -1,0 +1,17 @@
+.DS_STORE
+.env
+.gitignore
+.prettierignore
+.ico
+.npmrc
+.yaml
+
+schema.prisma
+
+.github/
+node_modules/
+sandbox/
+build/
+images/
+examples/
+migrations/

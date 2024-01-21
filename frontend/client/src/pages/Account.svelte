@@ -8,7 +8,7 @@
 
 	const logout = async () => {
 		await fetch("/users/logout", {
-			method: "POST",
+			"method": "POST"
 		});
 
 		window.location.href = "/";
@@ -24,8 +24,7 @@
 			<Button
 				text="Logout"
 				id="logout-buttion"
-				on:buttonAction={() => logout()}
-			/>
+				on:buttonAction={() => logout()} />
 		{:else}
 			<Button text="Login" id="login-buttion" on:buttonAction={() => login()} />
 		{/if}
