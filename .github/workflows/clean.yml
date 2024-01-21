@@ -26,9 +26,14 @@ jobs:
           npm run lint
           npm run format
 
-      - name: Commit Changes
+      - name: Ensure on Branch
         run: |
-          git config user.name "stevedoesitall"
-          git config user.email "stephenagiordano@gmail.com"
-          git add .
-          git diff --quiet || git commit -m "Auto-format code" && git push
+          CURRENT_BRANCH=$(git branch --show-current)
+          if [ "$CURRENT_BRANCH" == "HEAD" ]; then
+            git checkout -b temporary-branch
+          fi
+
+      - name: Push Changes
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          git push origin HEAD:main
