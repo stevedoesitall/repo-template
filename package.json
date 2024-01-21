@@ -125,16 +125,5 @@
 		"plugins": [
 			"prettier-plugin-svelte"
 		]
-	},
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "npm run lint",
-      "npm run format"
-    ]
-  }
+	}
 }
