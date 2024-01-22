@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from "svelte";
 	import { loggedIn, userEmail, userId } from "./stores";
+	
 	import Nav from "./components/Nav.svelte";
 	import checkLogin from "./utils/check-login";
 
