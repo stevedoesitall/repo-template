@@ -5,13 +5,29 @@
 	"description": "",
 	"main": "dist/index.js",
 	"scripts": {
+		"db:init": "npx prisma init",
+		"db:pull": "dotenv -e ../.env -- npx prisma db pull",
+		"db:generate": "npx prisma generate",
+		"db:seed": "npx prisma db seed",
+		"db:all": "npm run db:init && npm run db:pull && npm run db:generate && npm run db:seed",
 		"compile": "tsc",
+		"migrate:dev": "npx prisma migrate dev",
+		"migrate:prod": "npx prisma migrate deploy",
 		"start": "node .",
 		"start:dev": "npm run compile && nodemon ."
 	},
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
-		"cors": "^2.8.5"
+		"@prisma/client": "^5.8.1",
+		"cors": "^2.8.5",
+		"dotenv-cli": "^7.3.0"
+	},
+	"devDependencies": {
+		"prisma": "^5.8.1"
+	},
+	"prisma": {
+		"schema": "db/schema.prisma",
+		"seed": "ts-node db/seed.ts"
 	}
 }
