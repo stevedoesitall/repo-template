@@ -25,6 +25,14 @@ app.post("/server", (req, res) => {
 		.status(200);
 });
 
+app.get("/", (req, res) => {
+	res
+		.send({
+			"easter": "ann"
+		})
+		.status(200);
+});
+
 app.listen(port, () => {
 	console.log(`Backend server is running on port ${port}`);
 });
