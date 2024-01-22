@@ -4,7 +4,7 @@
 	"type": "module",
 	"scripts": {
 		"start:frontend": "npm install && cd frontend && npm install && npm run compile && npm run build && npm start",
-		"start:backend": "npm install && cd backend && npm install && npm run compile && npm start && npm run migrate:prod",
+		"start:backend": "npm install && cd backend && npm install && npm run compile && npm start",
 		"lint": "eslint . --ext .js,.mjs,.ts,.svelte --fix",
 		"format": "prettier --write ."
 	},
