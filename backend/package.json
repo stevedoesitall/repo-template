@@ -11,7 +11,7 @@
 		"db:seed": "npx prisma db seed",
 		"db:all": "npm run db:init && npm run db:pull && npm run db:generate && npm run db:seed",
 		"compile": "tsc",
-		"migrate:dev": "npx prisma migrate dev",
+		"migrate:dev": "dotenv -e ../.env -- npx prisma migrate dev",
 		"migrate:prod": "npx prisma migrate deploy",
 		"start": "node .",
 		"start:dev": "npm run compile && nodemon ."
