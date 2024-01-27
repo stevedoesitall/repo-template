@@ -5,6 +5,8 @@ on:
     workflows: ["Unit & Integration Tests"]
     types:
       - completed
+    condition:
+      success(): github.event.workflow_run.conclusion == 'success'
 
 jobs:
   frontend:
