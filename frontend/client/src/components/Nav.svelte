@@ -13,7 +13,6 @@
 	page("*", () => (current = Error));
 
 	page.start();
-
 </script>
 
 <div id="nav">
