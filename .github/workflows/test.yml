@@ -21,6 +21,9 @@ jobs:
     - name: Install Dependencies
       run: npm install && cd backend && npm install
 
+    - name: Generate Prisma
+      run: cd backend && npx prisma generate
+
     - name: Build Source Code
       run: cd backend && npm run compile
 

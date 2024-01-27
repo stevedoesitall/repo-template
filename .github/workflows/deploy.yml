@@ -5,8 +5,6 @@ on:
     workflows: ["Unit & Integration Tests"]
     types:
       - completed
-    condition:
-      success(): github.event.workflow_run.conclusion == 'success'
 
 jobs:
   frontend:
@@ -19,6 +17,7 @@ jobs:
           fetch-depth: 0
 
       - name: Deploy Frontend to Heroku
+        if: success()
         run: |
           echo "machine api.heroku.com login $HEROKU_EMAIL password $HEROKU_API_KEY" >> ~/.netrc
           echo "machine git.heroku.com login $HEROKU_EMAIL password $HEROKU_API_KEY" >> ~/.netrc
@@ -40,6 +39,7 @@ jobs:
           fetch-depth: 0
 
       - name: Deploy Backend to Heroku
+        if: success()
         run: |
           echo "machine api.heroku.com login $HEROKU_EMAIL password $HEROKU_API_KEY" >> ~/.netrc
           echo "machine git.heroku.com login $HEROKU_EMAIL password $HEROKU_API_KEY" >> ~/.netrc
