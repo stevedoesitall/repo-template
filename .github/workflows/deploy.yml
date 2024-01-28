@@ -76,8 +76,6 @@ jobs:
 
         env:
           APP_TO_START: "database"
-          HEROKU_EMAIL: ${{ secrets.HEROKU_EMAIL }}
-          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
 
       - name: Run Database Migrations on Heroku
         if: success()
