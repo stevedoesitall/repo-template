@@ -8,8 +8,22 @@ datasource db {
 }
 
 model users {
-  id             String    @id
-  email          String    @unique @db.VarChar(255)
-  create_date    DateTime  @default(now()) @db.Timestamp(6)
-  last_view_date DateTime? @db.Timestamp(6)
+  id             String     @id
+  email          String     @unique @db.VarChar(255)
+  create_date    DateTime   @default(now()) @db.Timestamp(6)
+  last_view_date DateTime?  @db.Timestamp(6)
+  api_logs       api_logs[]
+}
+
+model api_logs {
+  id            String   @id @default(uuid())
+  timestamp     DateTime @default(now()) @db.Timestamp(6)
+  method        String
+  endpoint      String
+  status_code   Int?
+  request_body  String?
+  response_body String?
+  user_id       String?
+  client_ip     String?
+  user          users?   @relation(fields: [user_id], references: [id])
 }
