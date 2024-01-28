@@ -1,35 +1,58 @@
 import request from "supertest";
 import { expect } from "chai";
-
+import sinon from "sinon";
 import app from "../../dist/servers/app.js";
+import { userService } from "../../dist/components/user/user.service.js";
 
 const testPort = 5051;
 
-const server = app.listen(testPort, () => {
-	return true;
+let server;
+
+before((done) => {
+	server = app.listen(testPort, done);
 });
 
 describe("Users API", () => {
 	describe("/id/:id", () => {
+        afterEach(() => {
+            sinon.restore();
+          });
+
 		it("should return a 200 status", async () => {
-			const goodId = "8173b937-40cd-4b69-9cdc-527fb8c9fe91";
-			const results = await request(app).get("/users/id/" + goodId);
-			expect(results.status).to.equal(200);
+            const getUserByIdStub = sinon.stub(userService, "getById").resolves({
+                "id": "sampleUserId",
+                "username": "testUser",
+              });
+        
+              const response = await request(app).get("/users/id/sampleUserId");
+        
+              expect(response.status).to.equal(200);
+              expect(response.body).to.deep.equal({
+                "data": {
+                    "id": "sampleUserId",
+                    "username": "testUser",
+                  },
+                  "ok": true
+              });
+        
+              getUserByIdStub.restore();
 		});
 
 		it("should return a 204 status", async () => {
-			const badId = "8173b937-40cd-4b69-9cdc-527fb8c9fe92";
-			const results = await request(app).get("/users/id/" + badId);
-			expect(results.status).to.equal(204);
+            const getUserByIdStub = sinon.stub(userService, "getById").resolves(null);
+
+            const response = await request(app).get("/users/id/nonExistentUserId");
+      
+            expect(response.status).to.equal(204);
+      
+            getUserByIdStub.restore();
 		});
 	});
 });
 
-after(async () => {
-	try {
-		await new Promise((resolve) => server.close(resolve));
+after((done) => {
+	server.close(() => {
 		console.log("Test server closed successfully");
-	} catch (err) {
-		console.error("Error closing test server:", err);
-	}
+		done();
+	});
 });

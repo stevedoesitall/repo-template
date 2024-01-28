@@ -3,7 +3,6 @@ import cors from "cors";
 import allRoutes from "../indeces/routes.index.js";
 
 const app = express();
-const port = process.env.PORT || 5050;
 
 app.use(express.urlencoded({ "extended": false }));
 app.use(express.json());

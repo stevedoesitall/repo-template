@@ -1,9 +1,7 @@
 import { expect } from "chai";
 import sinon from "sinon";
 import { PrismaClient } from "@prisma/client";
-import { UserService } from "../../dist/components/user/user.service.js";
-
-const TABLE = "users";
+import { userService } from "../../dist/components/user/user.service.js";
 
 describe("UserService", () => {
 	const goodUser = {
@@ -34,7 +32,6 @@ describe("UserService", () => {
 		it("should return one user based on ID", async () => {
 			stub.resolves([goodUser]);
 
-			const userService = new UserService(TABLE);
 			const user = await userService.getById(goodUser.id);
 
 			expect(stub.calledOnce).to.be.true;
@@ -43,7 +40,7 @@ describe("UserService", () => {
 
 		it("should return no users based on ID", async () => {
 			stub.resolves([]);
-			const userService = new UserService(TABLE);
+			
 			const user = await userService.getById(badUser.id);
 
 			expect(stub.calledOnce).to.be.true;
@@ -55,7 +52,6 @@ describe("UserService", () => {
 		it("should return one user based on email", async () => {
 			stub.resolves([goodUser]);
 
-			const userService = new UserService(TABLE);
 			const user = await userService.getByEmail(goodUser.email);
 
 			expect(stub.calledOnce).to.be.true;
@@ -65,7 +61,6 @@ describe("UserService", () => {
 		it("should return no users based on email", async () => {
 			stub.resolves([]);
 
-			const userService = new UserService(TABLE);
 			const user = await userService.getByEmail(badUser.email);
 
 			expect(stub.calledOnce).to.be.true;
