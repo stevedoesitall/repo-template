@@ -1,7 +1,7 @@
 name: Unit & Integration Tests
 
 on:
-  push:
+  pull_request:
     branches:
       - main
 

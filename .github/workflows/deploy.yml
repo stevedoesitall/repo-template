@@ -60,24 +60,15 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Set Up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '20'
-
-      - name: Install Heroku CLI
-        if: success()
-        run: |
-          npm install -g heroku
-          heroku plugins:install @heroku-cli/plugin-pg
-
-      - name: Log in to Heroku
-        run: heroku login -i
-
-        env:
-          APP_TO_START: "database"
-
       - name: Run Database Migrations on Heroku
         if: success()
         run: |
+          echo "machine api.heroku.com login $HEROKU_EMAIL password $HEROKU_API_KEY" >> ~/.netrc
+          echo "machine git.heroku.com login $HEROKU_EMAIL password $HEROKU_API_KEY" >> ~/.netrc
           heroku run "cd backend && npm run migrate:prod" --app steve-kit-be
+          git push heroku main
+
+        env:
+          APP_TO_START: "database"
+          HEROKU_EMAIL: ${{ secrets.HEROKU_EMAIL }}
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
