@@ -16,7 +16,6 @@ jobs:
           fetch-depth: 0
 
       - name: Deploy Frontend to Heroku
-        if: success()
         run: |
           echo "machine api.heroku.com login $HEROKU_EMAIL password $HEROKU_API_KEY" >> ~/.netrc
           echo "machine git.heroku.com login $HEROKU_EMAIL password $HEROKU_API_KEY" >> ~/.netrc
@@ -38,7 +37,6 @@ jobs:
           fetch-depth: 0
 
       - name: Deploy Backend to Heroku
-        if: success()
         run: |
           echo "machine api.heroku.com login $HEROKU_EMAIL password $HEROKU_API_KEY" >> ~/.netrc
           echo "machine git.heroku.com login $HEROKU_EMAIL password $HEROKU_API_KEY" >> ~/.netrc
@@ -60,12 +58,10 @@ jobs:
           fetch-depth: 0
 
       - name: Run Database Migrations on Heroku
-        if: success()
         run: |
           echo "machine api.heroku.com login $HEROKU_EMAIL password $HEROKU_API_KEY" >> ~/.netrc
           echo "machine git.heroku.com login $HEROKU_EMAIL password $HEROKU_API_KEY" >> ~/.netrc
           heroku run "cd backend && npm run migrate:prod" --app steve-kit-be
-          git push heroku main
 
         env:
           APP_TO_START: "database"
